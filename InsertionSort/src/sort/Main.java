@@ -7,6 +7,10 @@ import java.util.ArrayList;
 
 public class Main {
 	
+	/**
+	 * Sorts the given ArrayList in ascending order
+	 * @param ArrayList to be sorted
+	 * **/
 	public static ArrayList<Integer> sort(ArrayList<Integer> input) {
 
 		for (int i = 1; i < input.size(); i++){
@@ -14,6 +18,7 @@ public class Main {
 			int index = input.get(i);
 
 			for (int j = i-1; j >= 0; j--){
+				//OBS!! If you want to sort in descending order instead, this is the < you want to flip.
 				if (index < input.get(j)) {
 					// Shift each element to the right as index is less than the existing element at current index
 					input.set(j + 1, input.get(j));
@@ -32,12 +37,22 @@ public class Main {
 		return input;
 	}
 	
+	
+	/**
+	 * Prints the given ArrayList with a new line between each element
+	 * @param ArrayList to be printed
+	 * **/
 	public static void print(ArrayList<Integer> list) {
 		for (int i: list) {
 			System.out.print(i + "\n");
 		}
 	}
 	
+	/**
+	 * Makes an ArrayList from a file. The file has to have the numbers separated by spaces.
+	 * @param A string filename
+	 * @return An ArrayList with the numbers from file
+	 * **/
 	public static ArrayList<Integer> listFromFile(String filename) throws NumberFormatException, IOException {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -51,9 +66,12 @@ public class Main {
 		br.close();
 		return list;
 	}
-
+	
+	//Just for testing
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		ArrayList<Integer> list = listFromFile("C:\\Users\\Elvira\\Downloads\\slumpad.txt");
+//		ArrayList<Integer> list = listFromFile("FILENAME");
+		
+		//Integer Arraylist
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
 		
 		list1.add(5);
@@ -69,15 +87,8 @@ public class Main {
 		list1.add(4);
 		list1.add(10);
 		
-		
-//		print(list1);
-//		System.out.println("\n");
-		sort(list);
-//		print(list1);
-		
-		for (int i = 1; i < list.size() - 1; i++) {
-    		System.out.println(list.get(i - 1) < list.get(i));
-    	}
+		sort(list1);
+		print(list1);
 	}
 
 }
